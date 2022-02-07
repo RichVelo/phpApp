@@ -3,7 +3,7 @@
 function bikeDetails(array $allBikes) {
     $returnedHTML = "";
     foreach($allBikes as $bikes) {
-        $returnedHTML .= '<p>' . $bikes['bikeName'] . ' is a ' . $bikes['colour'] . ' ' . $bikes['brand'] . ' ' . $bikes['bikeClass'] . ' bike ' . ' and it\'s condition is ' . $bikes['condition'] . '</p>';
+        $returnedHTML .= '<p><ul class="bikeList"><il class="bike"><h2>Name:</h2> ' . $bikes['bikeName'] .  ' <h3>Brand and model:</h3> ' . $bikes['brand'] . ' ' . $bikes['model'] . ' <h3>Bike Type:</h3> ' . $bikes['bikeClass'] . '  ' . ' <h3>Condition:</h3> ' . $bikes['condition'] . '<h3>Colour:</h3>' . $bikes['colour'] . '</il></ul></p>';
     }
     return $returnedHTML;
 }

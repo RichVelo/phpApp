@@ -1,0 +1,12 @@
+.bikeList {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.bike {
+    width: auto;
+    padding: 10px;
+    margin: 10px;
+}

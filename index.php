@@ -1,4 +1,5 @@
 <?php
+echo '<link rel="stylesheet" type="text/css" href="style.css">';
 require_once './functions.php';
 $db = new PDO('mysql:host=db; dbname=rbicycles', 'root', 'password');
 
