@@ -4,7 +4,7 @@ $db = new PDO('mysql:host=db; dbname=rbicycles', 'root', 'password');
 
 $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-$query = $db->prepare('SELECT `bikeName`,`bikeClass`, `condition` FROM `bikes`');
+$query = $db->prepare('SELECT * FROM `bikes`');
 
 $query->execute();
 
