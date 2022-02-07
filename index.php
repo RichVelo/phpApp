@@ -13,10 +13,3 @@ $allBikes = $query->fetchAll();
 echo '<h1>My whips</h1>';
 
 echo bikeDetails($allBikes);
-
-
-//echo '<ul>';
-//foreach($allBikes as $bikes) {
-//    echo '<li>' . $bikes['bikeName'] . ' is a ' . $bikes['bikeClass'] . ' bike ' . ' and it\'s condition is ' . $bikes['condition'] . '</li>';
-//}
-//echo '</ul>';
