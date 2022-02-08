@@ -10,17 +10,18 @@ $query = $db->prepare('SELECT * FROM `bikes`');
 $query->execute();
 
 $allBikes = $query->fetchAll();
-echo '<html>';
-echo '<body>';
+
+?>
+
+<html>
 
 
-echo '<div class="pageTitle">' . '<h1>Richie\'s whips</h1>' . '</div>';
+<header class="pageTitle"><h1>Richie's whips</h1></header>
+<main>
+    <section class="container">
+        <?= bikeDetails($allBikes)?>;
+    </section>
+</main>
 
+</html>
 
-echo '<div class="container">';
-echo bikeDetails($allBikes);
-echo '</div>';
-
-
-echo '</html>';
-echo '</body>';

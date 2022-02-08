@@ -13,22 +13,23 @@ h1 {
 
 .bikeCards {
     border: 2px solid #000000;
-    width: 15%;
+    width: 350px;
 }
 
+.bike {
+    width: 50%;
+}
 .container {
     margin: 0 auto;
     width: 85vw;
-    flex-direction: row;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
 .bikeList {
-    width: 80%
+    width: 100%
 }
-
 
 @media screen and (max-width: 650px) {
     .container {
