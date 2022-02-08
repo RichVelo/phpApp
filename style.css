@@ -1,21 +1,41 @@
+html {
+    font-size: 10px;
+}
+
+.pageTitle {
+    display: flex;
+    justify-content: center;
+}
+h1 {
+    font-size: 3rem;
+    justify-content: center;
+}
+
 .bikeCards {
     border: 2px solid #000000;
     width: 15%;
 }
 
 .container {
-    width: 100vw;
+    margin: 0 auto;
+    width: 85vw;
+    flex-direction: row;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
 .bikeList {
-    width: 100%
-
+    width: 80%
 }
 
-/*.bike {*/
-/*    padding: 10px;*/
-/*    margin: 10px;*/
-/*}*/
+
+@media screen and (max-width: 650px) {
+    .container {
+        flex-direction: column;
+    }
+    .bikeCards{
+        width: 75vw;
+    }
+
+}

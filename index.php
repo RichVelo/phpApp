@@ -14,7 +14,9 @@ echo '<html>';
 echo '<body>';
 
 
-echo '<h1>Richie\'s whips</h1>';
+echo '<div class="pageTitle">' . '<h1>Richie\'s whips</h1>' . '</div>';
+
+
 echo '<div class="container">';
 echo bikeDetails($allBikes);
 echo '</div>';
