@@ -14,14 +14,16 @@ $allBikes = $query->fetchAll();
 ?>
 
 <html>
-
-
-<header class="pageTitle"><h1>Richie's whips</h1></header>
+<body>
+<title>
+    <title>Richie's Whips</title>
+</head>
+<header><h1>Richie's whips</h1></header>
 <main>
     <section class="container">
         <?= bikeDetails($allBikes)?>;
     </section>
 </main>
-
+</body>
 </html>
 
