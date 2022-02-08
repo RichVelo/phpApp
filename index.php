@@ -1,5 +1,4 @@
 <?php
-echo '<link rel="stylesheet" type="text/css" href="style.css">';
 require_once './functions.php';
 $db = new PDO('mysql:host=db; dbname=rbicycles', 'root', 'password');
 
@@ -10,15 +9,28 @@ $query = $db->prepare('SELECT * FROM `bikes`');
 $query->execute();
 
 $allBikes = $query->fetchAll();
-echo '<html>';
-echo '<body>';
 
+?>
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Richie's Whips</title>
+</head>
+<body>
+    <header>
+        <h1>Richie's whips</h1>
+    </header>
 
-echo '<h1>Richie\'s whips</h1>';
-echo '<div class="container">';
-echo bikeDetails($allBikes);
-echo '</div>';
+    <main>
+        <section class="bikeContainer">
+            <?= bikeDetails($allBikes)?>;
+        </section>
 
+        <section>
+<!--            I believe it is not sensible to ignore future aspects to be added when building the base of a page-->
+        </section>
+    </main>
+</body>
+</html>
 
-echo '</html>';
-echo '</body>';

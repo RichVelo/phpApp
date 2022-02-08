@@ -1,10 +1,28 @@
-.bikeCards {
-    border: 2px solid #000000;
-    width: 15%;
+html {
+    font-size: 10px;
 }
 
-.container {
-    width: 100vw;
+header {
+    display: flex;
+    justify-content: center;
+}
+h1 {
+    font-size: 3rem;
+    justify-content: center;
+}
+
+.bikeCard {
+    border: 2px solid #000000;
+    width: 350px;
+}
+
+.bike {
+    width: 50%;
+}
+
+.bikeContainer {
+    margin: 0 auto;
+    width: 85%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -12,10 +30,14 @@
 
 .bikeList {
     width: 100%
-
 }
 
-/*.bike {*/
-/*    padding: 10px;*/
-/*    margin: 10px;*/
-/*}*/
+@media screen and (max-width: 650px) {
+    .container {
+        flex-direction: column;
+    }
+    .bikeCards{
+        width: 75vw;
+    }
+
+}
