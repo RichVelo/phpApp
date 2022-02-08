@@ -1,5 +1,4 @@
 <?php
-echo '<link rel="stylesheet" type="text/css" href="style.css">';
 require_once './functions.php';
 $db = new PDO('mysql:host=db; dbname=rbicycles', 'root', 'password');
 
@@ -12,18 +11,22 @@ $query->execute();
 $allBikes = $query->fetchAll();
 
 ?>
-
-<html>
-<body>
-<title>
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>Richie's Whips</title>
 </head>
-<header><h1>Richie's whips</h1></header>
-<main>
-    <section class="container">
-        <?= bikeDetails($allBikes)?>;
-    </section>
-</main>
+<body>
+    <header>
+        <h1>Richie's whips</h1>
+    </header>
+
+    <main>
+        <section class="bikeContainer">
+            <?= bikeDetails($allBikes)?>;
+        </section>
+    </main>
 </body>
 </html>
 

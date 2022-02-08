@@ -19,7 +19,8 @@ h1 {
 .bike {
     width: 50%;
 }
-.container {
+
+.bikeContainer {
     margin: 0 auto;
     width: 85vw;
     display: flex;
