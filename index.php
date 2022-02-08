@@ -10,7 +10,15 @@ $query = $db->prepare('SELECT * FROM `bikes`');
 $query->execute();
 
 $allBikes = $query->fetchAll();
+echo '<html>';
+echo '<body>';
 
-echo '<h1>My whips</h1>';
 
+echo '<h1>Richie\'s whips</h1>';
+echo '<div class="container">';
 echo bikeDetails($allBikes);
+echo '</div>';
+
+
+echo '</html>';
+echo '</body>';
