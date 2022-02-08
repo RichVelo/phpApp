@@ -26,6 +26,10 @@ $allBikes = $query->fetchAll();
         <section class="bikeContainer">
             <?= bikeDetails($allBikes)?>;
         </section>
+
+        <section>
+<!--            I believe it is not sensible to ignore future aspects to be added when building the base of a page-->
+        </section>
     </main>
 </body>
 </html>

@@ -22,7 +22,7 @@ h1 {
 
 .bikeContainer {
     margin: 0 auto;
-    width: 85vw;
+    width: 85%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
