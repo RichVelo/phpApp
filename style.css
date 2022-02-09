@@ -8,6 +8,7 @@ header {
 }
 h1 {
     font-size: 3rem;
+    display: flex;
     justify-content: center;
 }
 
@@ -33,10 +34,10 @@ h1 {
 }
 
 @media screen and (max-width: 650px) {
-    .container {
+    .bikeContainer {
         flex-direction: column;
     }
-    .bikeCards{
+    .bikeCard{
         width: 75vw;
     }
 

@@ -1,15 +1,10 @@
 <?php
 require_once './functions.php';
 $db = new PDO('mysql:host=db; dbname=rbicycles', 'root', 'password');
-
 $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-
 $query = $db->prepare('SELECT * FROM `bikes`');
-
 $query->execute();
-
 $allBikes = $query->fetchAll();
-
 ?>
 <!DOCTYPE html>
 <html lang="en-GB">
@@ -21,14 +16,9 @@ $allBikes = $query->fetchAll();
     <header>
         <h1>Richie's whips</h1>
     </header>
-
     <main>
         <section class="bikeContainer">
             <?= bikeDetails($allBikes)?>;
-        </section>
-
-        <section>
-<!--            I believe it is not sensible to ignore future aspects to be added when building the base of a page-->
         </section>
     </main>
 </body>
