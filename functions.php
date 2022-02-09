@@ -8,7 +8,7 @@ function bikeDetails(array $allBikes): string
     }
         $HTMLToDisplayBikeInfo = "";
         foreach ($allBikes as $bike) {
-            $HTMLToDisplayBikeInfo .= '<div class="bikeCard"><h2>Name:</h2><p>'. $bike['bikeName'] . '</p><h3>Brand and model:</h3><p>' . $bike['brand'] . ' ' . $bike['model'] . '</p><h3>Bike Type:</h3><p>' . $bike['bikeClass'] . '</p><h3>Condition:</h3><p>' . $bike['condition'] . '</p><h3>Colour:</h3><p>' . $bike['colour'] . '</p></div>';
+            $HTMLToDisplayBikeInfo .= '<div class="bikeCard">' . '<h2>' . $bike['bikeName'] . '</h2>' . '<h3>Brand and model:</h3><p>' . $bike['brand'] . ' ' . $bike['model'] . '</p><h3>Bike Type:</h3><p>' . $bike['bikeClass'] . '</p><h3>Condition:</h3><p>' . $bike['condition'] . '</p><h3>Colour:</h3><p>' . $bike['colour'] . '</p></div>';
         }
         return $HTMLToDisplayBikeInfo;
 }
