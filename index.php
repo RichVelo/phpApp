@@ -4,9 +4,14 @@ $db = new PDO('mysql:host=db; dbname=rbicycles', 'root', 'password');
 $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
 if(isset($_POST['bikeName']) && isset($_POST['bikeClass']) && isset($_POST['suspensionType']) && isset($_POST['idealSurface']) && isset($_POST['condition']) && isset($_POST['brand']) && isset($_POST['model']) && isset($_POST['colour'])) {
-    $query = $db->prepare('INSERT INTO `bikes` (`bikeName`, `bikeClass`, `suspensionType`, `idealSurface`, `condition`, `brand`, `model`, `colour`) 
+    if (empty ($_POST["bikeName"]) || ($_POST["bikeClass"]) || ($_POST["suspensionType"]) || ($_POST["idealSurface"]) || ($_POST["condition"]) || ($_POST["brand"]) || ($_POST["model"]) || ($_POST["colour"])) {
+        $errMsg = "Please enter data into all fields.";
+        echo $errMsg;
+    } else {
+        $query = $db->prepare('INSERT INTO `bikes` (`bikeName`, `bikeClass`, `suspensionType`, `idealSurface`, `condition`, `brand`, `model`, `colour`) 
                                      VALUES (:bikeName, :bikeClass, :suspensionType, :idealSurface, :condition, :brand, :model, :colour)');
-    $query->execute([':bikeName' => $_POST['bikeName'], ':bikeClass' => $_POST['bikeClass'], ':suspensionType' => $_POST['suspensionType'], ':idealSurface' => $_POST['idealSurface'], ':condition' => $_POST['condition'], ':brand' => $_POST['brand'], ':model' => $_POST['model'], ':colour' => $_POST['colour']]);
+        $query->execute([':bikeName' => $_POST['bikeName'], ':bikeClass' => $_POST['bikeClass'], ':suspensionType' => $_POST['suspensionType'], ':idealSurface' => $_POST['idealSurface'], ':condition' => $_POST['condition'], ':brand' => $_POST['brand'], ':model' => $_POST['model'], ':colour' => $_POST['colour']]);
+    }
 }
 
 $query = $db->prepare('SELECT * FROM `bikes`');
@@ -38,7 +43,7 @@ $allBikes = $query->fetchAll();
             <h2>N+1</h2>
             <h3>Add more bikes here</h3>
             <div>
-                <form action="index.php" method="POST">
+                <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                     <input class="bikeName input" name="bikeName" placeholder="Give the bike a name" required="true">
                     <input class="bikeClass input" name="bikeClass" placeholder="What type of bike is it? " required="true">
                     <input class="suspensionType input" name="suspensionType" placeholder="Suspension type" required="true">
@@ -54,4 +59,3 @@ $allBikes = $query->fetchAll();
     </main>
 </body>
 </html>
-
