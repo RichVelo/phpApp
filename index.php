@@ -2,9 +2,22 @@
 require_once './functions.php';
 $db = new PDO('mysql:host=db; dbname=rbicycles', 'root', 'password');
 $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+$errMsg ="";
+if(isset($_POST['bikeName']) && isset($_POST['bikeClass']) && isset($_POST['suspensionType']) && isset($_POST['idealSurface']) && isset($_POST['condition']) && isset($_POST['brand']) && isset($_POST['model']) && isset($_POST['colour'])) {
+    if (empty ($_POST["bikeName"]) || (empty($_POST["bikeClass"])) || (empty($_POST["suspensionType"])) || (empty($_POST["idealSurface"])) || (empty($_POST["condition"])) || (empty($_POST["brand"])) || (empty($_POST["model"])) || (empty($_POST["colour"]))) {
+        $errMsg = "Please enter data into all fields.";
+    } else {
+        $query = $db->prepare('INSERT INTO `bikes` (`bikeName`, `bikeClass`, `suspensionType`, `idealSurface`, `condition`, `brand`, `model`, `colour`) 
+                                     VALUES (:bikeName, :bikeClass, :suspensionType, :idealSurface, :condition, :brand, :model, :colour)');
+        $query->execute([':bikeName' => $_POST['bikeName'], ':bikeClass' => $_POST['bikeClass'], ':suspensionType' => $_POST['suspensionType'], ':idealSurface' => $_POST['idealSurface'], ':condition' => $_POST['condition'], ':brand' => $_POST['brand'], ':model' => $_POST['model'], ':colour' => $_POST['colour']]);
+    }
+}
+
 $query = $db->prepare('SELECT * FROM `bikes`');
 $query->execute();
 $allBikes = $query->fetchAll();
+
 ?>
 <!DOCTYPE html>
 <html lang="en-GB">
@@ -20,13 +33,30 @@ $allBikes = $query->fetchAll();
 </head>
 <body>
     <header>
-        <h1>Richie's whips</h1>
+        <h1>Richie's excellent collection of bikes</h1>
     </header>
     <main>
         <section class="bikeContainer">
             <?= bikeDetails($allBikes)?>
         </section>
+        <section class="newBike">
+            <h2>N+1</h2>
+            <h3>Add more bikes here</h3>
+            <div>
+                <form method="POST" action="./index.php">
+                    <?php echo $errMsg;?>
+                    <input class="bikeName input" name="bikeName" placeholder="Give the bike a name" required="true">
+                    <input class="bikeClass input" name="bikeClass" placeholder="What type of bike is it? " required="true">
+                    <input class="suspensionType input" name="suspensionType" placeholder="Suspension type" required="true">
+                    <input class="idealSurface input" name="idealSurface" placeholder="What should it be ridden on?" required="true">
+                    <input class="condition input" name="condition" placeholder="What condition is the bike in?" required="true">
+                    <input class="brand input" name="brand" placeholder="What brand is the bike?" required="true">
+                    <input class="model input" name="model" placeholder="What model is it?" required="true">
+                    <input class="colour input" name="colour" placeholder="What colour is the bike?" required="true">
+                    <input class="submit" type="submit" value="Submit">
+                </form>
+            </div>
+        </section>
     </main>
 </body>
 </html>
-
