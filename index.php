@@ -37,7 +37,7 @@ $allBikes = $query->fetchAll();
         <section class="newBike">
             <h2>N+1</h2>
             <h3>Add more bikes here</h3>
-            <div class="newBikeForm">
+            <div>
                 <form action="index.php" method="POST">
                     <input class="bikeName input" name="bikeName" placeholder="Give the bike a name" required="true">
                     <input class="bikeClass input" name="bikeClass" placeholder="What type of bike is it? " required="true">
