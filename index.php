@@ -5,7 +5,7 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
 $errMsg ="";
 if(isset($_POST['bikeName']) && isset($_POST['bikeClass']) && isset($_POST['suspensionType']) && isset($_POST['idealSurface']) && isset($_POST['condition']) && isset($_POST['brand']) && isset($_POST['model']) && isset($_POST['colour'])) {
-    if (empty ($_POST["bikeName"]) || ($_POST["bikeClass"]) || ($_POST["suspensionType"]) || ($_POST["idealSurface"]) || ($_POST["condition"]) || ($_POST["brand"]) || ($_POST["model"]) || ($_POST["colour"])) {
+    if (empty ($_POST["bikeName"]) || (empty($_POST["bikeClass"])) || (empty($_POST["suspensionType"])) || (empty($_POST["idealSurface"])) || (empty($_POST["condition"])) || (empty($_POST["brand"])) || (empty($_POST["model"])) || (empty($_POST["colour"]))) {
         $errMsg = "Please enter data into all fields.";
     } else {
         $query = $db->prepare('INSERT INTO `bikes` (`bikeName`, `bikeClass`, `suspensionType`, `idealSurface`, `condition`, `brand`, `model`, `colour`) 
@@ -43,7 +43,7 @@ $allBikes = $query->fetchAll();
             <h2>N+1</h2>
             <h3>Add more bikes here</h3>
             <div>
-                <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                <form method="POST" action="./index.php">
                     <?php echo $errMsg;?>
                     <input class="bikeName input" name="bikeName" placeholder="Give the bike a name" required="true">
                     <input class="bikeClass input" name="bikeClass" placeholder="What type of bike is it? " required="true">
